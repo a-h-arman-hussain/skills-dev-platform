@@ -15,7 +15,10 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <h1 className="text-2xl font-bold mb-2 text-blue-500">
-              <a href="/">Skills Dev Platform</a>
+              <a href="/" className="flex items-center gap-1">
+                <img className="w-6 h-6" src="/logo.png" alt="" />
+                <span>Skills Dev Platform</span>
+              </a>
             </h1>
             <p className="text-gray-400">
               A modern platform providing awesome courses for your learning

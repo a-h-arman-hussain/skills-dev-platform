@@ -17,9 +17,9 @@ export default function Navbar() {
   const links = [
     { href: "/", label: "Home" },
     { href: "/all-course", label: "All Course" },
-    { href: "/add-course", label: "Add Course" },
+    user ? { href: "/add-course", label: "Add Course" } : null,
     { href: "/add-product", label: "Add Product" },
-  ];
+  ].filter(Boolean);
 
   return (
     <nav className="w-full sticky top-0 z-50 shadow-md px-4 md:px-8 py-3 flex justify-between items-center relative bg-white/70 backdrop-blur-md">
@@ -54,7 +54,10 @@ export default function Navbar() {
         )}
 
         <div className="text-xl font-bold text-blue-500">
-          <Link href="/">Skills Dev Platform</Link>
+          <Link className="flex items-center gap-1" href="/">
+            <img className="w-6 h-6" src="/logo.png" alt="" />
+            <span>Skills Dev Platform</span>
+          </Link>
         </div>
       </div>
 

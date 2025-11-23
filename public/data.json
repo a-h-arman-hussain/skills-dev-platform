@@ -1,0 +1,381 @@
+[
+  {
+    "id": 1,
+    "image": "https://play-lh.googleusercontent.com/wUZp2gNvX3mLkmzhq2FyTVSwRdtfWC-Fcx0lt8Xo1TxufvThvbAxgty7WpfARX6tLMxG=w240-h480-rw",
+    "title": "TaskMaster Pro",
+    "companyName": "Productivity Solutions Inc.",
+    "description": "TaskMaster Pro is a revolutionary productivity tool designed to help individuals and teams manage tasks efficiently, track project progress, and collaborate seamlessly. It features AI-powered suggestions, smart reminders, and customizable dashboards to keep users organized and focused.",
+    "size": 25,
+    "reviews": 120,
+    "ratingAvg": 4.5,
+    "downloads": 5,
+
+    "ratings": [
+      { "name": "1 star", "count": 10 },
+      { "name": "2 star", "count": 15 },
+      { "name": "3 star", "count": 30 },
+      { "name": "4 star", "count": 40 },
+      { "name": "5 star", "count": 25 }
+    ]
+  },
+  {
+    "id": 2,
+    "image": "https://play-lh.googleusercontent.com/XbyPYUvaiayhseYJkxprcSRwnRCm3wtlEQq9SW7eQ-aCaYCbqi3NSweLJgzK_i1u2EY=w240-h480-rw",
+    "title": "FitTrack Health",
+    "companyName": "Wellness Apps Ltd.",
+    "description": "FitTrack Health is a comprehensive fitness and wellness app offering customized workout plans, diet recommendations, and progress tracking. It integrates with wearables, provides motivational insights, and connects users with certified trainers to achieve their health goals effectively.",
+    "size": 30,
+    "reviews": 150,
+    "ratingAvg": 4.3,
+    "downloads": 8,
+
+    "ratings": [
+      { "name": "1 star", "count": 8 },
+      { "name": "2 star", "count": 12 },
+      { "name": "3 star", "count": 35 },
+      { "name": "4 star", "count": 50 },
+      { "name": "5 star", "count": 45 }
+    ]
+  },
+  {
+    "id": 3,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/68/66/95/68669566-7d86-7f06-4ace-ee91dfc3de0f/AppIcon-0-1x_U007ephone-0-85-220.png/1200x600wa.png",
+    "title": "BudgetWise",
+    "companyName": "FinTech Innovations",
+    "description": "BudgetWise helps users track their expenses, plan savings, and manage finances effectively. It offers real-time account synchronization, personalized insights, goal tracking, and interactive reports for smarter financial decisions.",
+    "size": 28,
+    "reviews": 200,
+    "ratingAvg": 4.6,
+    "downloads": 10,
+
+    "ratings": [
+      { "name": "1 star", "count": 5 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 30 },
+      { "name": "4 star", "count": 60 },
+      { "name": "5 star", "count": 95 }
+    ]
+  },
+  {
+    "id": 4,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d4/c0/9c/d4c09c4b-839c-1579-1db8-b02847d40141/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/1200x630wa.png",
+    "title": "TravelMate",
+    "companyName": "Global Travel Tech",
+    "description": "TravelMate is an advanced travel planning app that helps users organize trips, discover attractions, and manage itineraries seamlessly. It features interactive maps, AI-driven recommendations, booking integrations, and community reviews.",
+    "size": 32,
+    "reviews": 130,
+    "ratingAvg": 4.4,
+    "downloads": 7,
+
+    "ratings": [
+      { "name": "1 star", "count": 6 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 25 },
+      { "name": "4 star", "count": 60 },
+      { "name": "5 star", "count": 29 }
+    ]
+  },
+  {
+    "id": 5,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a4/82/14/a48214c3-1ac8-f6ce-a4c4-b5023e0a8236/AppIcon-0-0-1x_U007ephone-0-85-220.png/1200x630wa.png",
+    "title": "PhotoFusion",
+    "companyName": "Creative Media Corp.",
+    "description": "PhotoFusion is a state-of-the-art photo and video editing tool that allows users to create stunning visuals with advanced filters, layer management, AI-assisted enhancements, and social sharing options.",
+    "size": 28,
+    "reviews": 160,
+    "ratingAvg": 4.2,
+    "downloads": 68,
+
+    "ratings": [
+      { "name": "1 star", "count": 7 },
+      { "name": "2 star", "count": 12 },
+      { "name": "3 star", "count": 35 },
+      { "name": "4 star", "count": 50 },
+      { "name": "5 star", "count": 56 }
+    ]
+  },
+  {
+    "id": 6,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDMoMe8nks9FrV0wfZH0XFGC_jV3NrMem4FQ&s",
+    "title": "LearnSphere",
+    "companyName": "EdTech Innovations",
+    "description": "LearnSphere is an interactive learning platform offering courses, tutorials, and practice exercises in technology, business, and creative domains. Personalized learning paths and gamified challenges ensure maximum engagement.",
+    "size": 40,
+    "reviews": 180,
+    "ratingAvg": 4.5,
+    "downloads": 9,
+
+    "ratings": [
+      { "name": "1 star", "count": 5 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 25 },
+      { "name": "4 star", "count": 50 },
+      { "name": "5 star", "count": 90 }
+    ]
+  },
+  {
+    "id": 7,
+    "image": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI1LTA4LzI0cHgtc29jaWFsLWN5Y2xvbmUtcm91bmRlZC1tZW1vcGRvYS5qcGc.jpg",
+    "title": "MindCalm",
+    "companyName": "Wellness Labs",
+    "description": "MindCalm is a mindfulness and meditation app guiding users through breathing exercises, meditation sessions, and stress-relief activities. Personalized progress tracking and soothing sounds enhance mental well-being.",
+    "size": 22,
+    "reviews": 110,
+    "ratingAvg": 4.1,
+    "downloads": 4,
+
+    "ratings": [
+      { "name": "1 star", "count": 6 },
+      { "name": "2 star", "count": 12 },
+      { "name": "3 star", "count": 25 },
+      { "name": "4 star", "count": 40 },
+      { "name": "5 star", "count": 17 }
+    ]
+  },
+  {
+    "id": 8,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy61tOVzKM-yt-8r2c-5tI0RlBxta3LqRyYg&s",
+    "title": "SocialHive",
+    "companyName": "NextGen Networks",
+    "description": "SocialHive is a social networking platform connecting like-minded individuals through interest-based communities. It features forums, content sharing, event organization, and private messaging for meaningful engagement.",
+    "size": 45,
+    "reviews": 250,
+    "ratingAvg": 4.6,
+    "downloads": 12,
+
+    "ratings": [
+      { "name": "1 star", "count": 3 },
+      { "name": "2 star", "count": 7 },
+      { "name": "3 star", "count": 20 },
+      { "name": "4 star", "count": 60 },
+      { "name": "5 star", "count": 160 }
+    ]
+  },
+  {
+    "id": 9,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKZHEVDKgnMKNuLC0guTlTL1IK9GyiJDDhWg&s",
+    "title": "SoundStream",
+    "companyName": "AudioTech LLC",
+    "description": "SoundStream is a music streaming service with personalized playlists, high-quality audio, and offline listening. Collaborative playlist creation and smart device integration deliver an immersive music experience.",
+    "size": 18,
+    "reviews": 95,
+    "ratingAvg": 4.2,
+    "downloads": 3,
+
+    "ratings": [
+      { "name": "1 star", "count": 10 },
+      { "name": "2 star", "count": 15 },
+      { "name": "3 star", "count": 35 },
+      { "name": "4 star", "count": 25 },
+      { "name": "5 star", "count": 15 }
+    ]
+  },
+  {
+    "id": 10,
+    "image": "https://cdn0.iconfinder.com/data/icons/sound-audio-1/100/sound-42-512.png",
+    "title": "ShopSmart",
+    "companyName": "RetailTech Corp.",
+    "description": "ShopSmart is an intelligent e-commerce platform providing product recommendations, secure payments, real-time order tracking, and customer support, enabling a seamless shopping experience.",
+    "size": 30,
+    "reviews": 140,
+    "ratingAvg": 4.3,
+    "downloads": 65,
+
+    "ratings": [
+      { "name": "1 star", "count": 8 },
+      { "name": "2 star", "count": 12 },
+      { "name": "3 star", "count": 35 },
+      { "name": "4 star", "count": 50 },
+      { "name": "5 star", "count": 35 }
+    ]
+  },
+  {
+    "id": 11,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsCBMNprM-yf9Dp8U4cdIVR2DctdhopdgsYw&s",
+    "title": "WeatherWise",
+    "companyName": "ClimateTech",
+    "description": "WeatherWise provides real-time weather forecasts, severe weather alerts, and interactive maps. Customizable widgets, hourly and weekly updates, and AI-based predictions help users plan their day safely.",
+    "size": 20,
+    "reviews": 105,
+    "ratingAvg": 4.1,
+    "downloads": 42,
+
+    "ratings": [
+      { "name": "1 star", "count": 5 },
+      { "name": "2 star", "count": 8 },
+      { "name": "3 star", "count": 30 },
+      { "name": "4 star", "count": 40 },
+      { "name": "5 star", "count": 22 }
+    ]
+  },
+  {
+    "id": 12,
+    "image": "https://png.pngtree.com/png-clipart/20240323/original/pngtree-home-shield-security-png-image_14666732.png",
+    "title": "LangMaster",
+    "companyName": "EdTech Global",
+    "description": "LangMaster is a language learning app combining interactive lessons, speech recognition, and cultural immersion. Adaptive learning paths and gamified achievements enhance language acquisition.",
+    "size": 33,
+    "reviews": 180,
+    "ratingAvg": 4.4,
+    "downloads": 75,
+
+    "ratings": [
+      { "name": "1 star", "count": 6 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 40 },
+      { "name": "4 star", "count": 60 },
+      { "name": "5 star", "count": 64 }
+    ]
+  },
+  {
+    "id": 13,
+    "image": "https://png.pngtree.com/png-vector/20240413/ourmid/pngtree-security-shield-icon-png-image_12285039.png",
+    "title": "HomeGuard",
+    "companyName": "Smart Home Solutions",
+    "description": "HomeGuard allows users to control lights, thermostats, security cameras, and other connected devices remotely. Automation routines, energy insights, and real-time notifications ensure convenience and safety.",
+    "size": 24,
+    "reviews": 90,
+    "ratingAvg": 3.9,
+    "downloads": 3,
+
+    "ratings": [
+      { "name": "1 star", "count": 10 },
+      { "name": "2 star", "count": 12 },
+      { "name": "3 star", "count": 30 },
+      { "name": "4 star", "count": 28 },
+      { "name": "5 star", "count": 10 }
+    ]
+  },
+  {
+    "id": 14,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiZ2pn9QEarITGYlFuJCffIV4SEl8ipMO_KQ&s",
+    "title": "DocuFlow",
+    "companyName": "CollabTech",
+    "description": "DocuFlow is a collaborative document editing app that enables teams to create, edit, and share documents in real-time. Version history, commenting, and cloud integration make teamwork seamless.",
+    "size": 38,
+    "reviews": 200,
+    "ratingAvg": 4.5,
+    "downloads": 82,
+
+    "ratings": [
+      { "name": "1 star", "count": 4 },
+      { "name": "2 star", "count": 8 },
+      { "name": "3 star", "count": 30 },
+      { "name": "4 star", "count": 70 },
+      { "name": "5 star", "count": 88 }
+    ]
+  },
+  {
+    "id": 15,
+    "image": "https://play-lh.googleusercontent.com/JJ6_RYdocjopB0ms2CK1wQghb3lRq1KUx0vzp-fjtXvZU1IbwafZH8kqJUREdpjJtg=w240-h480-rw",
+    "title": "RecipeMaster",
+    "companyName": "Culinary Apps Inc.",
+    "description": "RecipeMaster is a recipe and meal planning app offering thousands of recipes, grocery lists, and cooking tutorials. Users can plan meals, discover new dishes, and maintain a healthy diet efficiently.",
+    "size": 29,
+    "reviews": 150,
+    "ratingAvg": 4.2,
+    "downloads": 62,
+
+    "ratings": [
+      { "name": "1 star", "count": 5 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 30 },
+      { "name": "4 star", "count": 55 },
+      { "name": "5 star", "count": 50 }
+    ]
+  },
+  {
+    "id": 16,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU4q2xa_Q_1WMFCMd44V3w5Q3bGeBhdPMs6OIjBEG_fBT6TaScfcnllhA9uuQzGzwiUEU&usqp=CAU",
+    "title": "VideoConnect",
+    "companyName": "CommTech Ltd.",
+    "description": "VideoConnect is a video conferencing app offering HD video, screen sharing, and collaboration tools for remote teams, educators, and event organizers.",
+    "size": 35,
+    "reviews": 220,
+    "ratingAvg": 4.5,
+    "downloads": 90,
+
+    "ratings": [
+      { "name": "1 star", "count": 4 },
+      { "name": "2 star", "count": 8 },
+      { "name": "3 star", "count": 20 },
+      { "name": "4 star", "count": 70 },
+      { "name": "5 star", "count": 118 }
+    ]
+  },
+  {
+    "id": 17,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkRdJkizIG0TYXYQzMSwfRYIwjWYCbKScgosE_AJU1XEhAFRx7clvaZM8-tD2tLoC2Frc&usqp=CAU",
+    "title": "NoteWise",
+    "companyName": "Productivity Apps LLC",
+    "description": "NoteWise is an AI-powered note-taking app that helps users capture ideas, organize thoughts, and collaborate on documents. Smart categorization, reminders, and cross-device sync enhance productivity.",
+    "size": 27,
+    "reviews": 140,
+    "ratingAvg": 4.0,
+    "downloads": 54,
+
+    "ratings": [
+      { "name": "1 star", "count": 7 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 35 },
+      { "name": "4 star", "count": 45 },
+      { "name": "5 star", "count": 43 }
+    ]
+  },
+  {
+    "id": 18,
+    "image": "https://thumbs.dreamstime.com/b/e-reader-device-open-book-e-book-text-e-reader-device-open-book-e-book-text-tablet-touchpad-e-reader-vector-icon-127140714.jpg",
+    "title": "E-Book Reader Plus",
+    "companyName": "ReadTech Corp.",
+    "description": "E-Book Reader Plus is a next-level e-book reader with cloud synchronization, annotation tools, and customizable reading modes. It integrates with online bookstores for an immersive reading experience.",
+    "size": 30,
+    "reviews": 160,
+    "ratingAvg": 4.3,
+    "downloads": 64,
+
+    "ratings": [
+      { "name": "1 star", "count": 5 },
+      { "name": "2 star", "count": 8 },
+      { "name": "3 star", "count": 35 },
+      { "name": "4 star", "count": 60 },
+      { "name": "5 star", "count": 52 }
+    ]
+  },
+  {
+    "id": 19,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqCik6M_xTn_E12bFcLsEvT6QloPnWIURpBg&s",
+    "title": "SecurePass",
+    "companyName": "CyberSafe Inc.",
+    "description": "SecurePass is a password manager that helps users store, generate, and autofill passwords safely. Multi-device support, encryption, and easy sharing options ensure digital security and convenience.",
+    "size": 19,
+    "reviews": 160,
+    "ratingAvg": 4.3,
+    "downloads": 6,
+
+    "ratings": [
+      { "name": "1 star", "count": 7 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 35 },
+      { "name": "4 star", "count": 45 },
+      { "name": "5 star", "count": 43 }
+    ]
+  },
+  {
+    "id": 20,
+    "image": "https://c8.alamy.com/comp/MT84BM/e-learning-icon-simple-distance-education-symbol-MT84BM.jpg",
+    "title": "E-Learn Pro",
+    "companyName": "EdTech Global",
+    "description": "E-Learn Pro is a comprehensive e-learning platform offering interactive courses, live sessions, and practice tests. Supports multiple languages and provides certifications to enhance skills and career growth.",
+    "size": 40,
+    "reviews": 250,
+    "ratingAvg": 4.6,
+    "downloads": 55,
+    "ratings": [
+      { "name": "1 star", "count": 3 },
+      { "name": "2 star", "count": 7 },
+      { "name": "3 star", "count": 20 },
+      { "name": "4 star", "count": 60 },
+      { "name": "5 star", "count": 160 }
+    ]
+  }
+]

@@ -25,7 +25,7 @@ export default function CourseDetails({ params }) {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">{item.title}</h1>
+      <h1 className="text-3xl font-bold text-blue-500 mb-4">{item.title}</h1>
 
       <img
         src={item.image}

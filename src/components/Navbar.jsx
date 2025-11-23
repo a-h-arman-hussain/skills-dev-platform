@@ -30,6 +30,7 @@ export default function Navbar() {
             {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
+
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="absolute top-14 left-0 w-64 md:hidden flex flex-col items-start gap-4 p-4 bg-white/30 backdrop-blur-xl border rounded-lg shadow-lg z-50">
@@ -39,8 +40,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-semibold px-2 py-1 rounded hover:text-blue-500 transition ${
-                    isActive ? "text-blue-500" : "text-gray-800"
+                  className={`font-semibold px-2 py-1 rounded transition ${
+                    isActive
+                      ? "text-blue-500"
+                      : "text-gray-800 hover:text-blue-500"
                   }`}
                 >
                   {link.label}
@@ -63,8 +66,10 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`font-semibold hover:text-blue-500 transition ${
-                isActive ? "text-blue-500 font-bold" : "text-gray-800"
+              className={`font-semibold transition ${
+                isActive
+                  ? "text-blue-500 font-bold"
+                  : "text-gray-800 hover:text-blue-500"
               }`}
             >
               {link.label}
@@ -86,7 +91,7 @@ export default function Navbar() {
           <div className="relative inline-block">
             {/* Profile Image */}
             <button
-              onClick={() => setOpen(!open)} // <-- toggle state
+              onClick={() => setOpen(!open)}
               className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer bg-gray-100"
             >
               {user.photoURL ? (
@@ -102,20 +107,25 @@ export default function Navbar() {
 
             {/* Dropdown Menu */}
             {open && (
-              <div className="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg z-50">
+              <div className="absolute flex flex-col gap-2 right-0 mt-2 w-40 bg-white border rounded shadow-lg p-2 z-50">
                 <Link
                   href="/profile"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={() => setOpen(false)} // Close dropdown on click
+                  onClick={() => setOpen(false)}
+                  className={`block px-4 py-2 rounded-lg transition ${
+                    pathname === "/profile"
+                      ? "bg-blue-500 text-white"
+                      : "text-gray-800 hover:bg-blue-700 hover:text-white border-2 hover:border-none"
+                  }`}
                 >
                   Profile
                 </Link>
+
                 <button
                   onClick={() => {
                     logOut();
-                    setOpen(false); // Close dropdown after logout
+                    setOpen(false);
                   }}
-                  className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                  className="w-full text-left px-4 py-2 hover:bg-red-700 bg-red-500 rounded-lg text-white"
                 >
                   Logout
                 </button>

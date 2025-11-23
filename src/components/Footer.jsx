@@ -14,7 +14,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div>
-            <h1 className="text-2xl font-bold mb-2">MyWebsite</h1>
+            <h1 className="text-2xl font-bold mb-2 text-blue-500">
+              <a href="/">Skills Dev Platform</a>
+            </h1>
             <p className="text-gray-400">
               A modern platform providing awesome courses for your learning
               journey.
@@ -26,22 +28,26 @@ const Footer = () => {
             <h2 className="font-semibold mb-4">Quick Links</h2>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="hover:text-white transition">
+                <Link href="/" className="hover:text-blue-500 transition">
                   Home
                 </Link>
               </li>
+
               <li>
-                <Link href="/about" className="hover:text-white transition">
+                <Link
+                  href="/all-course"
+                  className="hover:text-blue-500 transition"
+                >
+                  All Courses
+                </Link>
+              </li>
+              <li>
+                <Link href="/#" className="hover:text-blue-500 transition">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/courses" className="hover:text-white transition">
-                  Courses
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-white transition">
+                <Link href="/#" className="hover:text-blue-500 transition">
                   Contact
                 </Link>
               </li>
@@ -51,10 +57,10 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h2 className="font-semibold mb-4">Contact</h2>
-            <p className="text-gray-400">123 Main Street</p>
-            <p className="text-gray-400">City, Country</p>
-            <p className="text-gray-400">Email: info@mywebsite.com</p>
-            <p className="text-gray-400">Phone: +123 456 7890</p>
+            <p className="text-gray-400">Oxygen, Bayezid</p>
+            <p className="text-gray-400">Chittagong, Bangladesh</p>
+            <p className="text-gray-400">Email: armanhd16@gmail.com</p>
+            <p className="text-gray-400">Phone: +880 131 5315 449</p>
           </div>
 
           {/* Social */}
@@ -79,7 +85,8 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} MyWebsite. All rights reserved.
+          &copy; {new Date().getFullYear()} Skills Dev Platform. All rights
+          reserved.
         </div>
       </div>
     </footer>

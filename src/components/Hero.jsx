@@ -32,9 +32,9 @@ const Hero = () => {
               </h2>
             ) : (
               <>
-                <Link href="/all-course">
+                <Link href="/all-skills">
                   <button className="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
-                    Explore Courses
+                    Explore Skills
                   </button>
                 </Link>
                 <Link href="/register">

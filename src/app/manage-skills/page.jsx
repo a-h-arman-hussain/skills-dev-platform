@@ -18,7 +18,9 @@ const ManageProduct = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`https://skills-dev-platform-server.onrender.com/my-skills?email=${user.email}`)
+    fetch(
+      `https://skills-dev-platform-server.onrender.com/my-skills?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setSkills(data || []);
@@ -40,11 +42,14 @@ const ManageProduct = () => {
       created_by: selectedSkill.created_by, // preserve original creator
     };
 
-    fetch(`https://skills-dev-platform-server.onrender.com/skills/${selectedSkill._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
+    fetch(
+      `https://skills-dev-platform-server.onrender.com/skills/${selectedSkill._id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -54,11 +59,21 @@ const ManageProduct = () => {
               item._id === selectedSkill._id ? { ...item, ...formData } : item
             )
           );
-          alert("Course updated successfully!");
+
+          // Swal success
+          Swal.fire({
+            icon: "success",
+            title: "Updated!",
+            html: `Your <span class="font-bold text-blue-500">${selectedSkill.name}</span> Skill has been updated successfully.`,
+            timer: 2000,
+            showConfirmButton: false,
+          });
+
           setIsModalOpen(false);
         }
         setLoading(false);
       })
+
       .catch((err) => {
         console.log(err);
         setLoading(false);
@@ -76,10 +91,13 @@ const ManageProduct = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://skills-dev-platform-server.onrender.com/skills/${skill._id}`, {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-        })
+        fetch(
+          `https://skills-dev-platform-server.onrender.com/skills/${skill._id}`,
+          {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             // Delete from UI
@@ -87,7 +105,7 @@ const ManageProduct = () => {
 
             Swal.fire({
               title: "Deleted!",
-              text: "Your course has been deleted.",
+              html: `Your <span class="font-bold text-red-500">${skill.name}</span> Skill has been deleted.`,
               icon: "success",
             });
           })
@@ -101,7 +119,7 @@ const ManageProduct = () => {
   return (
     <PrivateRoute>
       <div className="p-6 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-blue-600 mb-6">Your Courses</h1>
+        <h1 className="text-3xl font-bold text-blue-600 mb-6">My Skills</h1>
 
         {skills.length === 0 ? (
           <p className="text-gray-600">You haven't added any courses yet.</p>
@@ -110,40 +128,36 @@ const ManageProduct = () => {
             {skills.map((skill) => (
               <div
                 key={skill._id}
-                className="flex justify-between items-center border rounded-xl p-4 shadow bg-white"
+                className="flex flex-col sm:flex-col md:flex-row justify-between items-start md:items-center border rounded-xl p-4 shadow bg-white"
               >
-                <div className="flex items-center gap-3">
-                  {/* IMAGE */}
-                  <img
-                    src={skill.thumbnailUrl}
-                    alt={skill.name}
-                    className="w-40 h-32 object-cover rounded-md shadow"
-                  />
+                {/* IMAGE */}
+                <img
+                  src={skill.thumbnailUrl}
+                  alt={skill.name}
+                  className="w-full sm:w-full md:w-40 h-32 object-cover rounded-md shadow mb-3 md:mb-0"
+                />
 
-                  {/* DETAILS */}
-                  <div>
-                    <h2 className="text-xl font-bold text-blue-600">
-                      {skill.name}
-                    </h2>
-
-                    <p className="text-gray-700 text-sm mt-1">
-                      <span className="font-semibold">Category:</span>{" "}
-                      {skill.category}
-                    </p>
-
-                    <p className="text-gray-700 text-sm mt-1">
-                      <span className="font-semibold">Created By:</span>{" "}
-                      {skill.created_by}
-                    </p>
-
-                    <p className="text-gray-700 text-sm mt-1">
-                      <span className="font-semibold">Created At:</span>{" "}
-                      {new Date(skill.created_at).toLocaleString()}
-                    </p>
-                  </div>
+                {/* DETAILS */}
+                <div className="flex-1 md:ml-4">
+                  <h2 className="text-lg md:text-xl font-bold text-blue-600">
+                    {skill.name}
+                  </h2>
+                  <p className="text-gray-700 text-sm mt-1">
+                    <span className="font-semibold">Category:</span>{" "}
+                    {skill.category}
+                  </p>
+                  <p className="text-gray-700 text-sm mt-1">
+                    <span className="font-semibold">Created By:</span>{" "}
+                    {skill.created_by}
+                  </p>
+                  <p className="text-gray-700 text-sm mt-1">
+                    <span className="font-semibold">Created At:</span>{" "}
+                    {new Date(skill.created_at).toLocaleString()}
+                  </p>
                 </div>
+
                 {/* BUTTONS */}
-                <div className="mt-3 flex gap-3">
+                <div className="flex flex-wrap gap-2 mt-3 md:mt-0">
                   <button
                     onClick={() => {
                       setSelectedSkill(skill);
@@ -159,7 +173,6 @@ const ManageProduct = () => {
                   >
                     Delete
                   </button>
-
                   <Link
                     href={`/course-details/${skill._id}`}
                     className="px-4 py-1 rounded bg-blue-500 text-white hover:bg-blue-600"

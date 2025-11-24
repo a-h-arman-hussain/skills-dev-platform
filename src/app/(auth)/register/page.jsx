@@ -3,10 +3,10 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "@/Context/AuthProvider";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, loginWithGoogle, loading } = useContext(AuthContext);
-  const [error, setError] = useState("");
   const [redirectTo, setRedirectTo] = useState("/");
   const router = useRouter();
 
@@ -20,7 +20,6 @@ const Register = () => {
   // Register with email/password
   const handleRegister = async (e) => {
     e.preventDefault();
-    setError("");
 
     const form = e.target;
     const name = form.name.value;
@@ -30,9 +29,24 @@ const Register = () => {
 
     try {
       await createUser(email, password, name, imageUrl);
-      router.push(redirectTo);
+
+      // Success Swal
+      Swal.fire({
+        title: "Success!",
+        html: `Account for <span class="font-bold text-blue-600">${name}</span> has been created successfully.`,
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+      }).then(() => {
+        router.push(redirectTo);
+      });
     } catch (err) {
-      setError(err.message);
+      // Error Swal
+      Swal.fire({
+        title: "Error!",
+        text: err.message || "Something went wrong. Please try again.",
+        icon: "error",
+        confirmButtonColor: "#d33",
+      });
     }
   };
 
@@ -40,22 +54,30 @@ const Register = () => {
   const handleGoogle = async () => {
     try {
       await loginWithGoogle();
-      router.push(redirectTo);
+      Swal.fire({
+        title: "Success!",
+        text: "Logged in successfully with Google!",
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+      }).then(() => {
+        router.push(redirectTo);
+      });
     } catch (err) {
-      setError(err.message);
+      Swal.fire({
+        title: "Error!",
+        text: err.message || "Something went wrong. Please try again.",
+        icon: "error",
+        confirmButtonColor: "#d33",
+      });
     }
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100 py-10">
+    <div className="min-h-screen flex justify-center items-center py-10">
       <div className="w-full max-w-md bg-white shadow-xl rounded-xl p-8">
         <h2 className="text-2xl font-bold text-center mb-6">
           Create an Account
         </h2>
-
-        {error && (
-          <p className="text-red-600 text-center mb-3 text-sm">{error}</p>
-        )}
 
         <form onSubmit={handleRegister} className="space-y-4">
           {/* Name */}

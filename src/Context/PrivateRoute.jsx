@@ -3,7 +3,7 @@
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/navigation"; // Next.js routing
 import { AuthContext } from "./AuthProvider";
-// import Loader from "../Components/Loader";
+import Loader from "@/components/Loader";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
@@ -11,17 +11,17 @@ const PrivateRoute = ({ children }) => {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.replace("/login"); // login না থাকলে redirect
+      router.replace("/login"); 
     }
   }, [user, loading, router]);
 
-  if (loading) return <p>loading....</p>//<Loader />; // spinner বা loading component
+  if (loading) return <Loader />; 
 
   if (user) {
-    return <>{children}</>; // user logged in → show children
+    return <>{children}</>; 
   }
 
-  return null; // user না থাকলে কিছু দেখাবে না (redirect হয়ে যাবে)
+  return null; 
 };
 
 export default PrivateRoute;

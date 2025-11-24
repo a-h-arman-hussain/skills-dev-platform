@@ -2,18 +2,17 @@
 
 import { AuthContext } from "@/Context/AuthProvider";
 import PrivateRoute from "@/Context/PrivateRoute";
-import { use, useState } from "react";
+import { useContext, useState } from "react";
+import Swal from "sweetalert2";
 
 const AddCourse = () => {
-  const { user } = use(AuthContext);
+  const { user } = useContext(AuthContext); // useContext ঠিক
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Form Submission Logic: API POST korbe
-    // ... your code here ...
     const formData = {
       name: e.target.name.value,
       category: e.target.category.value,
@@ -22,6 +21,7 @@ const AddCourse = () => {
       created_at: new Date(),
       created_by: user.email,
     };
+
     fetch("https://skills-dev-platform-server.onrender.com/skills", {
       method: "POST",
       headers: {
@@ -31,15 +31,27 @@ const AddCourse = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // Swal Success
+        Swal.fire({
+          title: "Success!",
+          html: `Your <span class="font-bold text-blue-600">${formData.name}</span> course has been added successfully.`,
+          icon: "success",
+          confirmButtonColor: "#3085d6",
+        });
       })
       .catch((err) => {
         console.log(err);
+        // Swal Error
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong. Please try again.",
+          icon: "error",
+          confirmButtonColor: "#d33",
+        });
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    setTimeout(() => {
-      setLoading(false);
-      alert("Course Added Successfully!");
-    }, 1200);
   };
 
   return (

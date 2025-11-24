@@ -70,7 +70,10 @@ const Footer = () => {
           <div>
             <h2 className="font-semibold mb-4">Follow Us</h2>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-white">
+              <a
+                href="https://www.facebook.com/a.h.arman.hussain"
+                className="hover:text-white"
+              >
                 <FaFacebookF />
               </a>
               <a href="#" className="hover:text-white">
@@ -79,7 +82,10 @@ const Footer = () => {
               <a href="#" className="hover:text-white">
                 <FaInstagram />
               </a>
-              <a href="#" className="hover:text-white">
+              <a
+                href="https://www.linkedin.com/in/mohammed-abdul-hakim-arman/"
+                className="hover:text-white"
+              >
                 <FaLinkedinIn />
               </a>
             </div>

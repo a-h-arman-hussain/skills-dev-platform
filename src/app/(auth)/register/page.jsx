@@ -30,7 +30,6 @@ const Register = () => {
     try {
       await createUser(email, password, name, imageUrl);
 
-      // Success Swal
       Swal.fire({
         title: "Success!",
         html: `Account for <span class="font-bold text-blue-600">${name}</span> has been created successfully.`,
@@ -40,7 +39,6 @@ const Register = () => {
         router.push(redirectTo);
       });
     } catch (err) {
-      // Error Swal
       Swal.fire({
         title: "Error!",
         text: err.message || "Something went wrong. Please try again.",

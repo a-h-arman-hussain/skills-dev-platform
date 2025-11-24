@@ -53,14 +53,12 @@ const ManageProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          // UI update
           setSkills((prev) =>
             prev.map((item) =>
               item._id === selectedSkill._id ? { ...item, ...formData } : item
             )
           );
 
-          // Swal success
           Swal.fire({
             icon: "success",
             title: "Updated!",
@@ -100,7 +98,6 @@ const ManageProduct = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            // Delete from UI
             setSkills((prev) => prev.filter((s) => s._id !== skill._id));
 
             Swal.fire({

@@ -1,25 +1,30 @@
+import Image from "next/image";
+import arman from "../../public/arman.jpg";
+import saim from "../../public/saim.jpg";
+import raihan from "../../public/raihan.jpg";
+
 const Testimonial = () => {
   const testimonials = [
     {
-      name: "Alice Johnson",
+      name: "A H Arman Hussain",
       role: "Frontend Developer",
       message:
         "This platform helped me land my first job as a web developer. The courses are amazing!",
-      avatar: "https://i.pravatar.cc/150?img=1",
+      avatar: arman,
     },
     {
-      name: "Mark Smith",
+      name: "Abdul Karim Saim",
       role: "Data Analyst",
       message:
         "The hands-on projects really helped me build a strong portfolio. Highly recommended!",
-      avatar: "https://i.pravatar.cc/150?img=2",
+      avatar: saim,
     },
     {
-      name: "Sofia Lee",
+      name: "Mesbah Uddin Raihan",
       role: "UX Designer",
       message:
         "I love the flexible learning pace and expert instructors. I learned a lot in a short time!",
-      avatar: "https://i.pravatar.cc/150?img=3",
+      avatar: raihan,
     },
   ];
 
@@ -42,10 +47,12 @@ const Testimonial = () => {
               className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1"
             >
               <div className="flex items-center mb-4">
-                <img
+                <Image
                   src={t.avatar}
                   alt={t.name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  width={48} 
+                  height={48}
+                  className="rounded-full mr-4"
                 />
                 <div>
                   <h3 className="text-lg font-semibold">{t.name}</h3>

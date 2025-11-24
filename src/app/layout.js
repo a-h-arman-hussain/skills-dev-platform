@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthProvider from "@/Context/AuthProvider";
-import { icons } from "@react-icons/all-files";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

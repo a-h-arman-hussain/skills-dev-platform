@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 
 const AddCourse = () => {
-  const { user } = useContext(AuthContext); // useContext ঠিক
+  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
@@ -31,7 +31,6 @@ const AddCourse = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // Swal Success
         Swal.fire({
           title: "Success!",
           html: `Your <span class="font-bold text-blue-600">${formData.name}</span> course has been added successfully.`,
@@ -41,7 +40,6 @@ const AddCourse = () => {
       })
       .catch((err) => {
         console.log(err);
-        // Swal Error
         Swal.fire({
           title: "Error!",
           text: "Something went wrong. Please try again.",

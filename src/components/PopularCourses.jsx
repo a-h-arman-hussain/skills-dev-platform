@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Card from "@/components/Card"; // tumi je Card component banachho
+import Card from "@/components/Card";
 
 export default function PopularCourses() {
   const [courses, setCourses] = useState([]);

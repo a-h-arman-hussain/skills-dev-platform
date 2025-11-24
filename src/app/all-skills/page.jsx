@@ -2,19 +2,28 @@
 
 import { useEffect, useState } from "react";
 import Card from "@/components/Card";
+import Loader from "@/components/Loader";
 
-export default function AllCourse() {
+export default function AllSkills() {
   const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
-      const res = await fetch("/data.json");
+      const res = await fetch(
+        "https://skills-dev-platform-server.onrender.com/skills"
+      );
       const data = await res.json();
       setCourses(data);
+      setLoading(false);
     };
 
     loadData();
   }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="min-h-screen font-sans p-6">
@@ -24,7 +33,7 @@ export default function AllCourse() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {courses.map((item) => (
-          <Card key={item.id} item={item} />
+          <Card key={item._id} item={item} />
         ))}
       </div>
     </div>

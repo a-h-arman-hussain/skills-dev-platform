@@ -9,7 +9,9 @@ export default function PopularCourses() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const res = await fetch("/data.json");
+        const res = await fetch(
+          "https://skills-dev-platform-server.onrender.com/popular-skills"
+        );
         const data = await res.json();
         setCourses(data);
       } catch (err) {
@@ -34,7 +36,7 @@ export default function PopularCourses() {
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {courses.length > 0 ? (
-            courses.map((course) => <Card key={course.id} item={course} />)
+            courses.map((course) => <Card key={course._id} item={course} />)
           ) : (
             <p className="text-gray-500 col-span-full text-center">
               Loading courses...

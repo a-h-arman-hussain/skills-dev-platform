@@ -87,7 +87,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
+        <div className="border-t border-gray-700 mt-8 py-6 text-center text-gray-500 text-sm">
           &copy; {new Date().getFullYear()} Skills Dev Platform. All rights
           reserved.
         </div>

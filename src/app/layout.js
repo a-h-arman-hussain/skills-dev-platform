@@ -31,12 +31,16 @@ export default function RootLayout({ children }) {
       className="transition-colors duration-300"
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
       >
         <AuthProvider>
-          <Navbar></Navbar>
-          {children}
-          <Footer></Footer>
+          <Navbar />
+
+          <div className="min-h-screen px-4 md:px-8 lg:px-16 py-6 max-w-7xl mx-auto">
+            {children}
+          </div>
+
+          <Footer />
         </AuthProvider>
       </body>
     </html>

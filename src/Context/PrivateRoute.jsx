@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext, useEffect } from "react";
-import { useRouter } from "next/navigation"; // Next.js routing
+import { useRouter } from "next/navigation";
 import { AuthContext } from "./AuthProvider";
 import Loader from "@/components/Loader";
 

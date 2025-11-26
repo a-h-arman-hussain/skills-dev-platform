@@ -19,6 +19,8 @@ export default function Navbar() {
     { href: "/all-skills", label: "All Skills" },
     user ? { href: "/add-skill", label: "Add Skill" } : null,
     user ? { href: "/manage-skills", label: "Manage Skills" } : null,
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ].filter(Boolean);
 
   return (
@@ -28,7 +30,11 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <div className="md:hidden flex items-center">
             <button onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <FiX className="text-red-500" size={24} /> : <FiMenu className="text-blue-500" size={24} />}
+              {menuOpen ? (
+                <FiX className="text-red-500" size={24} />
+              ) : (
+                <FiMenu className="text-blue-500" size={24} />
+              )}
             </button>
           </div>
 
@@ -57,7 +63,7 @@ export default function Navbar() {
           <div className="text-xl font-bold text-blue-500">
             <Link className="flex items-center gap-1" href="/">
               <img className="w-6 h-6" src="/logo.png" alt="" />
-              <span>Skills Dev Platform</span>
+              <span className="hidden sm:block">Skills Dev Platform</span>
             </Link>
           </div>
         </div>

@@ -5,46 +5,71 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Card = ({ item }) => {
-  const { _id, thumbnailUrl, name, description } = item;
+  // রিকোয়ারমেন্ট অনুযায়ী price এবং category যোগ করা হলো
+  const { _id, thumbnailUrl, name, description, price, category } = item;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }} // স্ক্রলে আসলে অ্যানিমেশন হবে
+      viewport={{ once: true }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       whileHover={{
-        scale: 1.04,
-        boxShadow: "0px 12px 30px rgba(0, 0, 0, 0.15)",
+        y: -10, // হালকা উপরে উঠবে
+        boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.1)",
       }}
-      className="w-full max-w-sm bg-white rounded-xl shadow-md overflow-hidden transition mx-auto"
+      className="w-full max-w-sm bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all mx-auto group"
     >
-      {/* IMAGE */}
-      <motion.img
-        src={thumbnailUrl}
-        alt={name}
-        className="w-full h-48 object-cover"
-        whileHover={{ scale: 1.1 }}
-        transition={{ duration: 0.4 }}
-      />
+      {/* IMAGE SECTION */}
+      <div className="relative h-48 w-full overflow-hidden">
+        <motion.img
+          src={thumbnailUrl || "https://via.placeholder.com/400x250"}
+          alt={name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        {/* Category Badge */}
+        {category && (
+          <div className="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+            {category}
+          </div>
+        )}
+      </div>
 
-      {/* CONTENT */}
-      <div className="p-4">
-        {/* Title */}
-        <h2 className="text-lg text-black font-semibold mb-2">{name}</h2>
+      {/* CONTENT SECTION */}
+      <div className="p-5 flex flex-col justify-between">
+        <div>
+          <h2 className="text-xl text-gray-800 font-bold mb-2 line-clamp-1 group-hover:text-blue-600 transition-colors">
+            {name}
+          </h2>
+          <p className="text-gray-500 text-sm line-clamp-2 mb-4">
+            {description}
+          </p>
+        </div>
 
-        {/* Description */}
-        <p className="text-gray-600 text-sm line-clamp-2">{description}</p>
+        <div className="flex items-center justify-between mt-2">
+          {/* Price - Requirement Specific */}
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-400 uppercase font-semibold">
+              Price
+            </span>
+            <span className="text-xl font-black text-blue-600">
+              {price > 0 ? `$${price}` : "Free"}
+            </span>
+          </div>
 
-        {/* Button */}
-        <Link href={`/course-details/${_id}`}>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-4 w-full text-center bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
-          >
-            View Details
-          </motion.div>
-        </Link>
+          {/* Details Button */}
+          <Link href={`/course-details/${_id}`}>
+            {" "}
+            {/* Route standardizing to /items/[id] */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-5 py-2.5 bg-gray-900 text-white text-sm font-bold rounded-xl hover:bg-blue-600 transition-colors shadow-lg"
+            >
+              Details
+            </motion.button>
+          </Link>
+        </div>
       </div>
     </motion.div>
   );

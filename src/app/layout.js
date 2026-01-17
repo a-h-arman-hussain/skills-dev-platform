@@ -33,9 +33,10 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
       >
         <AuthProvider>
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 bg-white/80 shadow-sm backdrop-blur-md sticky top-0 z-50">
           <Navbar />
-
-          <div className="min-h-screen px-4 md:px-8 lg:px-16 py-6 max-w-7xl mx-auto">
+          </div>
+          <div className="min-h-screen px-4 md:px-8 py-6 max-w-7xl mx-auto">
             {children}
           </div>
 

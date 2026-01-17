@@ -1,85 +1,99 @@
 "use client";
 
-import { useState, useContext } from "react";
-import { FiMenu } from "@react-icons/all-files/fi/FiMenu";
-import { FiX } from "@react-icons/all-files/fi/FiX";
+import { useState, useContext, useEffect } from "react";
+import {
+  FiMenu,
+  FiX,
+  FiUser,
+  FiLogOut,
+  FiSettings,
+  FiChevronDown,
+} from "react-icons/fi";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AuthContext } from "@/Context/AuthProvider";
-import { FiUser } from "@react-icons/all-files/fi/FiUser";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   const pathname = usePathname();
   const { user, logOut } = useContext(AuthContext);
+
+  // স্ক্রল করলে শ্যাডো এবং ব্যাকগ্রাউন্ড চেঞ্জ করার জন্য
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const links = [
     { href: "/", label: "Home" },
     { href: "/all-skills", label: "All Skills" },
-    user ? { href: "/add-skill", label: "Add Skill" } : null,
-    user ? { href: "/manage-skills", label: "Manage Skills" } : null,
+    ...(user
+      ? [
+          { href: "/add-skill", label: "Add Skill" },
+          { href: "/manage-skills", label: "Manage Skills" },
+        ]
+      : []),
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
-  ].filter(Boolean);
+  ];
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      document.cookie =
+        "isLoggedIn=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+      setProfileOpen(false);
+    } catch (error) {
+      console.error("Logout failed", error);
+    }
+  };
 
   return (
-    <div className="w-full sticky bg-white/70 shadow-md backdrop-blur-md top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center relative">
-        <div className="flex items-center gap-2">
-          {/* Mobile Hamburger */}
-          <div className="md:hidden flex items-center">
-            <button onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? (
-                <FiX className="text-red-500" size={24} />
-              ) : (
-                <FiMenu className="text-blue-500" size={24} />
-              )}
+    <header
+      className={`top-0 w-full transition-all duration-300 ${
+        scrolled
+          ? "py-1"
+          : ""
+      }`}
+    >
+      <nav className="flex justify-between items-center">
+        {/* LOGO AREA */}
+        <div className="flex items-center gap-4">
+          <div className="md:hidden">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="p-2 text-gray-700"
+            >
+              {menuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
             </button>
           </div>
-
-          {/* Mobile Menu */}
-          {menuOpen && (
-            <div className="absolute top-14 left-0 w-64 md:hidden flex flex-col items-start gap-4 p-4 bg-white/30 backdrop-blur-xl border rounded-lg shadow-lg z-50">
-              {links.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`font-semibold px-2 py-1 rounded transition ${
-                      isActive
-                        ? "text-blue-500"
-                        : "text-gray-800 hover:text-blue-500"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:rotate-6 transition-transform">
+              <span className="text-white font-black text-xl">S</span>
             </div>
-          )}
-
-          <div className="text-xl font-bold text-blue-500">
-            <Link className="flex items-center gap-1" href="/">
-              <img className="w-6 h-6" src="/logo.png" alt="" />
-              <span className="hidden sm:block">Skills Dev Platform</span>
-            </Link>
-          </div>
+            <span className="text-2xl font-black tracking-tighter text-gray-900">
+              Skill<span className="text-blue-600">Dev</span>
+            </span>
+          </Link>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6">
+        {/* DESKTOP NAV LINKS */}
+        <div className="hidden md:flex items-center gap-1">
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-semibold transition ${
+                className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${
                   isActive
-                    ? "text-blue-500 font-bold"
-                    : "text-gray-800 hover:text-blue-500"
+                    ? "bg-blue-50 text-blue-600"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
                 }`}
               >
                 {link.label}
@@ -88,63 +102,120 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Login / Profile */}
-        <div className="flex items-center gap-4">
+        {/* AUTH ACTIONS */}
+        <div className="flex items-center gap-3">
           {!user ? (
-            <Link
-              href="/login"
-              className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-700"
-            >
-              Login
-            </Link>
-          ) : (
-            <div className="relative inline-block">
-              {/* Profile Image */}
-              <button
-                onClick={() => setOpen(!open)}
-                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer bg-gray-100"
+            <div className="flex items-center gap-2">
+              <Link
+                href="/login"
+                className="hidden sm:block px-5 py-2 text-sm font-bold text-gray-700 hover:text-blue-600"
               >
-                {user.photoURL ? (
-                  <img
-                    src={user.photoURL}
-                    alt={user.displayName || "Profile"}
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
-                ) : (
-                  <FiUser className="w-6 h-6 text-gray-600" />
-                )}
+                Sign In
+              </Link>
+              <Link
+                href="/register"
+                className="bg-gray-900 text-white px-6 py-2.5 rounded-xl text-sm font-black hover:bg-blue-600 transition-all shadow-xl shadow-gray-200 active:scale-95"
+              >
+                Get Started
+              </Link>
+            </div>
+          ) : (
+            <div className="relative">
+              <button
+                onClick={() => setProfileOpen(!profileOpen)}
+                className="flex items-center gap-2 p-1 pr-3 rounded-full bg-gray-50 border border-gray-100 hover:border-blue-300 transition-all"
+              >
+                <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                  {user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      alt="User"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-blue-100 flex items-center justify-center text-blue-600">
+                      <FiUser />
+                    </div>
+                  )}
+                </div>
+                <FiChevronDown
+                  className={`text-gray-400 transition-transform ${
+                    profileOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
 
-              {/* Dropdown Menu */}
-              {open && (
-                <div className="absolute flex flex-col gap-2 right-0 mt-2 w-40 bg-white border rounded shadow-lg p-2 z-50">
-                  <Link
-                    href="/profile"
-                    onClick={() => setOpen(false)}
-                    className={`block px-4 py-2 rounded-lg transition ${
-                      pathname === "/profile"
-                        ? "bg-blue-500 text-white"
-                        : "text-gray-800 hover:bg-blue-700 hover:text-white border-2 hover:border-none"
-                    }`}
+              {/* DROPDOWN MENU */}
+              <AnimatePresence>
+                {profileOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 15 }}
+                    className="absolute right-0 mt-3 w-64 bg-white border border-gray-100 rounded-2xl shadow-2xl p-3 z-50"
                   >
-                    Profile
-                  </Link>
+                    <div className="px-4 py-3 border-b border-gray-50 mb-2">
+                      <p className="text-xs font-black text-blue-600 uppercase tracking-widest">
+                        Account
+                      </p>
+                      <p className="text-sm font-bold text-gray-900 truncate">
+                        {user.displayName || "User"}
+                      </p>
+                      <p className="text-xs text-gray-500 truncate">
+                        {user.email}
+                      </p>
+                    </div>
 
-                  <button
-                    onClick={() => {
-                      logOut();
-                      setOpen(false);
-                    }}
-                    className="w-full text-left px-4 py-2 hover:bg-red-700 bg-red-500 rounded-lg text-white"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
+                    <Link
+                      href="/profile"
+                      onClick={() => setProfileOpen(false)}
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-all"
+                    >
+                      <FiUser className="text-lg" /> My Profile
+                    </Link>
+
+                    <button
+                      onClick={handleLogOut}
+                      className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-red-600 hover:bg-red-50 rounded-xl transition-all mt-1"
+                    >
+                      <FiLogOut className="text-lg" /> Logout Account
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           )}
         </div>
       </nav>
-    </div>
+
+      {/* MOBILE MENU PANEL */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="md:hidden bg-white border-t border-gray-50 overflow-hidden"
+          >
+            <div className="flex flex-col p-6 gap-2">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`px-4 py-3 rounded-xl text-lg font-bold ${
+                    pathname === link.href
+                      ? "bg-blue-600 text-white"
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

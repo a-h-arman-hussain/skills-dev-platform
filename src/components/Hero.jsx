@@ -8,47 +8,62 @@ const Hero = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <section className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white overflow-hidden w-full rounded-2xl">
-      {/* Decorative shapes */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-purple-400 opacity-20 rounded-full filter blur-3xl animate-pulse"></div>
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-pink-400 opacity-20 rounded-full filter blur-3xl animate-pulse"></div>
+    <section className="relative bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 text-white overflow-hidden w-full min-h-[70vh] flex items-center p-5 rounded-3xl">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-white opacity-10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400 opacity-10 rounded-full filter blur-3xl animate-float-slow"></div>
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center min-h-[80vh]">
-        {/* Left: Text Content */}
-        <div className="flex-1 text-center md:text-left space-y-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-            Learn. Grow. Achieve.
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center w-full">
+        {/* Left Content */}
+        <div className="flex-1 text-center md:text-left space-y-6 py-10 md:py-0">
+          <div className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-medium mb-2">
+            🚀 The Ultimate Skill Learning Platform
+          </div>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+            Learn. <span className="text-pink-300">Grow.</span> <br /> Achieve.
           </h1>
-          <p className="text-lg sm:text-xl text-gray-100 max-w-md mx-auto md:mx-0">
-            Unlock your potential with expert-led courses and hands-on projects.
-            Join thousands of learners and level up your skills.
+          <p className="text-lg md:text-xl text-indigo-100 max-w-lg mx-auto md:mx-0 leading-relaxed">
+            Start your career with expert guidance. Our platform features 200+
+            hands-on projects, industry-standard courses, and certifications to
+            help you succeed.
           </p>
 
-          {/* Buttons or Welcome Message */}
-          <div className="flex gap-4 justify-center md:justify-start flex-wrap mt-4 pb-4">
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
             {user ? (
-              <h2 className="text-2xl font-semibold">
-                Welcome, {user.displayName}!
-              </h2>
+              <div className="space-y-4">
+                <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
+                  Welcome back, {user.displayName || "Learner"}!
+                </h2>
+                <Link
+                  href="/all-skills"
+                  className="inline-block bg-white text-indigo-700 font-bold px-8 py-3 rounded-xl shadow-xl hover:scale-105 transition-transform"
+                >
+                  Continue Learning
+                </Link>
+              </div>
             ) : (
               <>
-                <Link href="/all-skills">
-                  <button className="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
-                    Explore Skills
-                  </button>
+                <Link
+                  href="/all-skills"
+                  className="bg-white text-indigo-700 font-bold px-8 py-3 rounded-xl shadow-xl hover:bg-indigo-50 transition-all"
+                >
+                  Explore Skills
                 </Link>
-                <Link href="/register">
-                  <button className="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-indigo-600 transition">
-                    Get Started
-                  </button>
+                <Link
+                  href="/login"
+                  className="border-2 border-white/50 backdrop-blur-sm text-white font-bold px-8 py-3 rounded-xl hover:bg-white hover:text-indigo-700 transition-all"
+                >
+                  Get Started
                 </Link>
               </>
             )}
           </div>
         </div>
 
-        {/* Right: Animated SVG Illustration */}
-        <div className="flex-1 mb-10 md:mb-0 flex justify-center md:justify-end">
+        {/* Right Content: Animated SVG */}
+        <div className="flex-1 flex justify-center md:justify-end animate-float-slow">
           <svg
             className="w-64 h-64 md:w-80 md:h-80"
             viewBox="0 0 200 200"
@@ -158,22 +173,6 @@ const Hero = () => {
               r="10"
               fill="#fff"
               opacity="0.5"
-              className="animate-bounce-slower"
-            />
-            <circle
-              cx="160"
-              cy="60"
-              r="6"
-              fill="#fff"
-              opacity="0.7"
-              className="animate-bounce-slow"
-            />
-            <circle
-              cx="40"
-              cy="160"
-              r="5"
-              fill="#fff"
-              opacity="0.6"
               className="animate-bounce-slower"
             />
           </svg>

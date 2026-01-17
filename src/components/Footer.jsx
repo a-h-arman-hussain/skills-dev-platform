@@ -14,12 +14,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div>
-            <h1 className="text-2xl font-bold mb-2 text-blue-500">
-              <a href="/" className="flex items-center gap-1">
-                <img className="w-6 h-6" src="/logo.png" alt="" />
-                <span>Skills Dev Platform</span>
-              </a>
-            </h1>
+            <Link href="/" className="flex items-center gap-2 group mb-3">
+              <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-900 group-hover:rotate-6 transition-transform">
+                <span className="text-white font-black text-xl">S</span>
+              </div>
+              <span className="text-2xl font-black tracking-tighter">
+                Skill<span className="text-blue-600">Dev</span>
+              </span>
+            </Link>
             <p className="text-gray-400">
               A modern platform providing awesome courses for your learning
               journey.
@@ -50,7 +52,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-blue-500 transition">
+                <Link
+                  href="/contact"
+                  className="hover:text-blue-500 transition"
+                >
                   Contact
                 </Link>
               </li>

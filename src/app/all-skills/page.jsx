@@ -10,7 +10,7 @@ export default function AllSkills() {
   const [filteredSkills, setFilteredSkills] = useState([]);
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All");
-  const [searchQuery, setSearchQuery] = useState(""); // সার্চের জন্য নতুন স্টেট
+  const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -40,7 +40,6 @@ export default function AllSkills() {
     loadData();
   }, []);
 
-  // ক্যাটাগরি এবং সার্চ দুইটার সমন্বয়ে ফিল্টারিং
   useEffect(() => {
     let result = skills;
 

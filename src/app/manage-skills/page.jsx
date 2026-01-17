@@ -39,7 +39,7 @@ const ManageProduct = () => {
       category: form.category.value,
       description: form.description.value,
       thumbnailUrl: form.thumbnailUrl.value,
-      price: parseFloat(form.price.value), // Price field added
+      price: parseFloat(form.price.value),
       created_at: selectedSkill.created_at,
       created_by: selectedSkill.created_by,
     };
@@ -109,7 +109,6 @@ const ManageProduct = () => {
   return (
     <PrivateRoute>
       <div className="min-h-screen">
-        {/* Manage Skills Header */}
         <header className="text-center mb-10">
           {/* Sub-title: uppercase tracking-widest style */}
           <span className="text-blue-600 font-bold tracking-widest uppercase text-[12px] md:text-sm">

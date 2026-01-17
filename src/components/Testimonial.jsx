@@ -4,7 +4,6 @@ import Image from "next/image";
 import arman from "../../public/arman.jpg";
 import saim from "../../public/saim.jpg";
 import raihan from "../../public/raihan.jpg";
-import { FiQuote } from "react-icons/fi"; // কোট আইকন যোগ করলে সুন্দর দেখাবে
 
 const Testimonial = () => {
   const testimonials = [

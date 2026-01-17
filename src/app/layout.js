@@ -39,7 +39,6 @@ export default function RootLayout({ children }) {
           <div className="min-h-screen px-4 md:px-8 py-6 max-w-7xl mx-auto">
             {children}
           </div>
-
           <Footer />
         </AuthProvider>
       </body>

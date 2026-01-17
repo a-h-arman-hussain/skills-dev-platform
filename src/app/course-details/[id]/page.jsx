@@ -26,7 +26,6 @@ export default function CourseDetails() {
         );
         const data = await res.json();
 
-        // API response structure অনুযায়ী data.result বা data চেক করা
         if (data) {
           setItem(data.result || data);
         } else {

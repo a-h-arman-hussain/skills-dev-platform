@@ -24,7 +24,6 @@ const Profile = () => {
           animate={{ opacity: 1, scale: 1 }}
           className="w-full max-w-lg bg-white shadow-2xl shadow-blue-100 rounded-[2.5rem] overflow-hidden border border-gray-100"
         >
-          {/* প্রোফাইল হেডার ব্যাকগ্রাউন্ড */}
           <div className="h-32 bg-gradient-to-r from-blue-600 to-blue-400 relative">
             <div className="absolute -bottom-16 left-1/2 -translate-x-1/2">
               <div className="relative">
@@ -39,13 +38,11 @@ const Profile = () => {
                     <FiUser className="text-gray-400 w-14 h-14" />
                   </div>
                 )}
-                {/* অনলাইন স্ট্যাটাস ইন্ডিকেটর */}
                 <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-4 border-white rounded-full"></div>
               </div>
             </div>
           </div>
 
-          {/* ইউজার ডিটেইলস সেকশন */}
           <div className="pt-20 pb-10 px-8 text-center">
             <h2 className="text-3xl font-black text-gray-900 mb-1">
               {user?.displayName || "Anonymous User"}
@@ -55,7 +52,6 @@ const Profile = () => {
             </p>
 
             <div className="space-y-4 max-w-sm mx-auto">
-              {/* ইমেইল কার্ড */}
               <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
                 <div className="bg-blue-100 p-2 rounded-lg text-blue-600">
                   <FiMail className="text-xl" />
@@ -70,7 +66,6 @@ const Profile = () => {
                 </div>
               </div>
 
-              {/* ভেরিফিকেশন স্ট্যাটাস কার্ড */}
               <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
                 <div
                   className={`p-2 rounded-lg ${

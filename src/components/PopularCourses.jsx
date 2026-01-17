@@ -15,7 +15,6 @@ export default function PopularCourses() {
           "https://skills-dev-platform-server.onrender.com/popular-skills"
         );
         const data = await res.json();
-        // রিকোয়ারমেন্ট অনুযায়ী যদি অনেক ডাটা থাকে, আমরা শুধু প্রথম ৬টি দেখাতে পারি ল্যান্ডিং পেজে
         setCourses(data.slice(0, 6));
       } catch (err) {
         console.error("Failed to load courses:", err);
@@ -49,7 +48,6 @@ export default function PopularCourses() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {loading ? (
-            // লোডিং হওয়ার সময় ৩টি মক কঙ্কাল (Skeleton) কার্ড দেখালে ইউজার এক্সপেরিয়েন্স ভালো হবে
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
               <div
                 key={n}

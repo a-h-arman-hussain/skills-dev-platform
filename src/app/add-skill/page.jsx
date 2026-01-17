@@ -19,7 +19,7 @@ const AddCourse = () => {
       category: form.category.value,
       description: form.description.value,
       thumbnailUrl: form.thumbnailUrl.value,
-      price: parseFloat(form.price.value), // নতুন রিকোয়ারমেন্ট অনুযায়ী
+      price: parseFloat(form.price.value),
       created_at: new Date(),
       created_by: user?.email,
       userName: user?.displayName,
@@ -44,7 +44,7 @@ const AddCourse = () => {
           icon: "success",
           confirmButtonColor: "#2563eb",
         });
-        form.reset(); // ফর্ম ক্লিয়ার করা
+        form.reset();
       }
     } catch (err) {
       console.error(err);

@@ -5,17 +5,16 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Card = ({ item }) => {
-  // রিকোয়ারমেন্ট অনুযায়ী price এবং category যোগ করা হলো
   const { _id, thumbnailUrl, name, description, price, category } = item;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }} // স্ক্রলে আসলে অ্যানিমেশন হবে
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       whileHover={{
-        y: -10, // হালকা উপরে উঠবে
+        y: -10,
         boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.1)",
       }}
       className="w-full max-w-sm bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all mx-auto group"

@@ -151,7 +151,6 @@ const About = () => {
           {/* The Blue Line: Signature Shadow and Rounded style */}
           <div className="w-24 h-1.5 bg-blue-600 mx-auto mt-4 rounded-full shadow-lg shadow-blue-500/50"></div>
 
-          {/* Description: (ঐচ্ছিক কিন্তু স্ট্যান্ডার্ড বজায় রাখতে যোগ করা হয়েছে) */}
           <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Our diverse team of experts is dedicated to building a world-class
             learning experience for students worldwide.

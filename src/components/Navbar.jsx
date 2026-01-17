@@ -6,7 +6,6 @@ import {
   FiX,
   FiUser,
   FiLogOut,
-  FiSettings,
   FiChevronDown,
 } from "react-icons/fi";
 import Link from "next/link";
@@ -22,7 +21,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const { user, logOut } = useContext(AuthContext);
 
-  // স্ক্রল করলে শ্যাডো এবং ব্যাকগ্রাউন্ড চেঞ্জ করার জন্য
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);

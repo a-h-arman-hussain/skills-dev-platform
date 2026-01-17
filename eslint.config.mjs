@@ -1,8 +1,8 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextCoreWebVitals from "eslint-config-next"; // আপনি এটি ইম্পোর্ট করেছেন
+import nextCoreWebVitals from "eslint-config-next";
 
 const eslintConfig = defineConfig([
-  ...nextCoreWebVitals, // এখানে 'nextVitals' এর বদলে 'nextCoreWebVitals' ব্যবহার করুন
+  ...nextCoreWebVitals,
 
   globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
 ]);

@@ -36,7 +36,6 @@ const Features = () => {
 
   return (
     <section className="mt-10">
-      <div className="">
         {/* Why Choose Us Header */}
         <div className="text-center mb-16">
           {/* Sub-title: uppercase tracking-widest style */}
@@ -79,7 +78,6 @@ const Features = () => {
             </div>
           ))}
         </div>
-      </div>
     </section>
   );
 };

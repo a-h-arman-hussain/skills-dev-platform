@@ -7,62 +7,75 @@ import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { loginWithGoogle, loading, setLoading } = useContext(AuthContext);
+  const { loginWithGoogle, login, loading, setLoading } =
+    useContext(AuthContext);
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  // 'from' এর বদলে আপনার কোড অনুযায়ী 'redirectTo' ব্যবহার করছি
   const redirectTo = searchParams?.get("from") || "/all-skills";
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // ১. Mock Login Function (Hardcoded Credentials)
-  const handleLogin = async (e) => {
+  // ১. ডেমো বাটন হ্যান্ডলার (যদি বাটনটি UI-তে আবার যোগ করেন)
+  const handleDemoLogin = () => {
+    setEmail("admin@skilldev.com");
+    setPassword("admin@skilldev.com");
+    Swal.fire({
+      toast: true,
+      position: "top-end",
+      icon: "info",
+      title: "Demo credentials applied!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
+  // ২. মেইন লগইন হ্যান্ডলার (ফিক্সড)
+  const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // হার্ডকোড ইমেইল ও পাসওয়ার্ড
-    const mockEmail = "admin@skilldev.com";
-    const mockPassword = "password123";
-
-    try {
-      if (email === mockEmail && password === mockPassword) {
-        // ২. Store credentials in cookies
-        document.cookie = `isLoggedIn=true; path=/; max-age=${60 * 60 * 24}`; 
+    login(email, password)
+      .then((result) => {
+        // সফল লগইনে কুকি সেট করা (রিকোয়ারমেন্ট অনুযায়ী)
+        document.cookie = `isLoggedIn=true; path=/; max-age=${60 * 60 * 24}`;
 
         Swal.fire({
           icon: "success",
-          title: "Login Successful",
-          text: `Welcome back to SkillDev!`,
-          timer: 1500,
+          title: "Welcome back!",
+          text: `${
+            result?.user?.displayName || "User"
+          } logged in successfully.`,
+          timer: 2000,
           showConfirmButton: false,
         });
 
-        // ৪. Redirect to items/lists page
+        // ফিক্স: 'navigate' এর বদলে 'router.replace' এবং 'from' এর বদলে 'redirectTo'
         router.replace(redirectTo);
-      } else {
-        throw new Error("Invalid email or password!");
-      }
-    } catch (err) {
-      Swal.fire({
-        icon: "error",
-        title: "Login Failed",
-        text: err.message,
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: err.message || "Invalid email or password. Please try again.",
+        });
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    } finally {
-      setLoading(false);
-    }
   };
 
   const handleGoogleLogin = async () => {
     setLoading(true);
     try {
       await loginWithGoogle();
-      // গুগল লগইনের ক্ষেত্রেও কুকি সেট করা
       document.cookie = `isLoggedIn=true; path=/; max-age=${60 * 60 * 24}`;
 
       Swal.fire({
         icon: "success",
         title: "Login Successful",
-        text: `Welcome!`,
         timer: 1500,
         showConfirmButton: false,
       });
@@ -89,6 +102,15 @@ const Login = () => {
             Member <span className="text-blue-600">Login</span>
           </h1>
           <div className="w-16 h-1.5 bg-blue-600 mx-auto mt-4 rounded-full shadow-lg shadow-blue-500/50"></div>
+
+          {/* ডেমো বাটন অপশনাল কিন্তু টেস্টিং এর জন্য ভালো */}
+          <button
+            type="button"
+            onClick={handleDemoLogin}
+            className="mt-4 text-[10px] font-bold bg-gray-100 px-3 py-1 rounded-full uppercase text-gray-500 hover:bg-gray-200"
+          >
+            Apply Demo Credits
+          </button>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-5">

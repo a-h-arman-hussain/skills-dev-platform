@@ -1,5 +1,6 @@
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import ImpactSection from "@/components/ImpactSection";
 import PopularCourses from "@/components/PopularCourses";
 import Testimonial from "@/components/Testimonial";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <PopularCourses></PopularCourses>
       <Features></Features>
       <Testimonial></Testimonial>
+      <ImpactSection></ImpactSection>
     </div>
   );
 }
